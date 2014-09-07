@@ -2,6 +2,8 @@
 
 An alarm clock web-app, in the browser, based on Angular.js.
 
+Demo: http://zawi.github.io/internet-alarm/
+
 ***
 
 ## What is it?
