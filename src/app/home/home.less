@@ -1,0 +1,77 @@
+@import url('http://fonts.googleapis.com/css?family=Fira+Mono:400,700');
+.home-intro {
+  background: #000 url('img/home-intro.jpg');
+  background-size: cover;
+  color: #fff;
+  background-position: center;
+
+}
+
+.marketing {
+  .row {
+    margin-bottom: 10px;
+  }
+
+  .row:last-child {
+    margin-bottom: 0;
+  }
+  
+  h4 [class*=" icon-"], h4 [class^="icon-"] {
+    margin-right: 5px;
+    vertical-align: -10%;
+    font-size: 28px;
+    line-height: 1;
+  }
+}
+
+.current-time {
+  font-size: 4em;
+  font-family: 'Fira Sans', monospace;
+  font-weight: 700;
+}
+
+.alarms-table {
+  .alarm-url a {
+    font-style: italic;
+    color: #555;
+    text-decoration: none;
+    &:hover {
+      color: #888;
+      text-decoration: underline;
+    }
+  }
+
+  .fa.alarm-action {
+    cursor: pointer;
+    padding: 0 1em;
+    font-size: 1.33em;
+    &.alarm-remove {
+      &:hover {
+        color: #922;
+      }
+    }
+
+    &.alarm-edit {
+      &:hover {
+        color: #A81;
+      }
+    }
+  }
+  .form-control, .btn {
+    display: inline-block;
+    width: auto;
+    margin-top: -6px;
+    margin-bottom: -6px;
+  }
+}
+
+td.alarm-url {
+  text-overflow: ellipsis;
+  max-width: 10em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.row-enabled-false {
+  background: #F8F8F8;
+}

@@ -1,0 +1,101 @@
+/**
+ * This is the main application stylesheet. It should include or import all
+ * stylesheets used throughout the application as this is the only stylesheet in
+ * the Grunt configuration that is automatically processed.
+ */
+
+
+/**
+ * First, we include the Twitter Bootstrap LESS files. Only the ones used in the
+ * project should be imported as the rest are just wasting space.
+ */
+
+@import '../../vendor/bootstrap/less/bootstrap.less';
+
+
+/**
+ * This is our main variables file. We must include it last so we can overwrite any variable
+ * definitions in our imported stylesheets.
+ */
+
+@import 'variables.less';
+
+
+/**
+ * Partials
+ */
+@import 'partials/header.less';
+@import 'partials/footer.less';
+
+
+
+/**
+ * Typography
+ */
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import 'font-awesome/font-awesome.less';
+
+body {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+code, pre, .pre {
+  padding: 5px;
+  margin: 10px 0;
+  background-color: #EFEFEF;
+  border: 1px solid #DADADA;
+  border-radius: 3px;
+}
+
+code {
+  padding: 0 3px;
+}
+
+pre {
+  margin: 10px 0;
+  padding: 5px;
+}
+
+h2 {
+  margin: 20px 0;
+  color: #666;
+}
+
+.jumbotron {
+  text-align: center;
+
+  h1 {
+    margin-bottom: 20px;
+    font-size: 55px;
+    line-height: 1;
+  }
+
+  .lead {
+    font-size: 24px;
+    line-height: 1.25;
+  }
+}
+
+.container {
+  &.container-wide {
+    width: auto;
+    padding: 0;
+    .jumbotron {
+      border-radius: 0;
+      margin: 0 0 2em;
+    }
+  }
+}
+
+
+
+/**
+ * Now that all app-wide styles have been applied, we can load the styles for
+ * all the submodules and components we are using. 
+ *
+ * TODO: In a later version of this boilerplate, I'd like to automate this.
+ */
+
+@import '../app/home/home.less';
+
+

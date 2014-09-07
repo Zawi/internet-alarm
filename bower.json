@@ -1,0 +1,14 @@
+{
+  "name": "internet-alarm",
+  "version": "0.8",
+  "devDependencies": {
+    "angular": "~1.2",
+    "angular-animate": "~1.2",
+    "angular-mocks": "~1.2",
+    "bootstrap": "~3.1",
+    "angular-bootstrap": "~0.10.0",
+    "angular-ui-router": "~0.2",
+    "ngstorage": "~0.3"
+  },
+  "dependencies": {}
+}

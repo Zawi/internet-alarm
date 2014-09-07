@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="internetAlarm" ng-controller="AppCtrl">
+  <head>
+    <title ng-bind="pageTitle"></title>
+    <meta charset="utf-8"/>
+    <!-- social media tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@Zwslk">
+    <meta name="twitter:title" content="{{pageTitle}}">
+    <meta name="twitter:description" content="Non-Trivial AngularJS Made Easy: Everything you need to kickstart AngularJS projects: a best-practice directory structure, an intelligent build system, and the best web design libraries around.">
+    <meta name="twitter:creator" content="@Zwslk">
+    <meta name="twitter:image:src" content="https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/Octocat.png?1366128846">
+    <meta property="og:title" content="{{pageTitle}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Wake up with your favorite songs and radio shows!">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- font awesome from BootstrapCDN -->
+    <!--<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">-->
+
+    <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+
+    <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%= file %>"></script><% }); %>
+
+  </head>
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
+          ng-click="menuCollapsed = ! menuCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-brand">
+          <a href ui-sref="home">
+            Internet Alarm
+          </a>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse" collapse="menuCollapsed">
+        <ul class="nav navbar-nav">
+          <li ui-sref-active="active">
+            <a href ui-sref="home">
+              <i class="fa fa-home"></i>
+              Home
+            </a>
+          </li>
+          <li ui-sref-active="active">
+            <a href ui-sref="about">
+              <i class="fa fa-info-circle"></i>
+              What is it?
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container container-wide">
+
+    <div class="container container-wide" ui-view="main"></div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <ul class="social">
+            <li><a target="_blank" href="http://plus.google.com/+LéoZawislak"><i class="fa fa-google-plus"></i></a></li>
+            <li><a target="_blank" href="http://twitter.com/zwslk"><i class="fa fa-twitter"></i></a></li>
+            <li><a target="_blank" href="http://linkedin.com/in/leozawislak"><i class="fa fa-linkedin"></i></a></li>
+            <li><a target="_blank" href="http://github.com/zawi"><i class="fa fa-github"></i></a></li>
+          </ul>
+
+          <p>
+              &copy; 2014 - Internet-Alarm.
+              <br/>
+              Website by <a href="http://www.zawislak.fr">Léo Zawislak</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

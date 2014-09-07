@@ -1,0 +1,76 @@
+<div class="jumbotron home-intro">
+    <span class="current-time">{{now | date: $root.timeFormat}}</span>
+    <br/>
+    <label class="checkbox-inline">
+        <input type="checkbox" ng-model="$root.toggleTimeFormat" checked /> 24h format
+    </label>
+    <h1>The Internet Alarm</h1>
+
+    <p class="lead">
+        Wake up with your favorite songs and radio shows!
+    </p>
+</div>
+
+<div class="container">
+    <form ng-submit="addAlarm()" class="form-inline">
+        <input type="number" min="0" max="23" ng-model="newAlarmHour" class="form-control" placeholder="Hour"/>
+        <input type="number" min="0" max="59" ng-model="newAlarmMinute" class="form-control" placeholder="Minute"/>
+        <input type="text" ng-model="newAlarmURL" class="form-control" placeholder="URL"/>
+        <button class="btn btn-primary">New Alarm</button>
+    </form>
+    <div class="table-responsive alarms-table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="width: 5em;"></th>
+                    <th>Time</th>
+                    <th>URL</th>
+                    <th>Remaining</th>
+                    <th style="width: 10em;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="alarm in alarms | orderBy:['!enabled','time']" class="row-enabled-{{alarm.enabled}}">
+                    <td>
+                        <input type="checkbox" ng-model="alarm.enabled"/>
+                    </td>
+                    <td>
+                        <span ng-if="!isEditingAlarm(alarm)">
+                            {{alarm.time | date: $root.shortTimeFormat}}
+                        </span>
+                        <span ng-if="isEditingAlarm(alarm)">
+                            <input type="number" min="0" max="23" class="form-control" value="{{alarm.time.getHours()}}" ng-model="alarm.copy.hours" placeholder="Hour"/>
+                            <input type="number" min="0" max="59" class="form-control" value="{{alarm.time.getMinutes()}}" ng-model="alarm.copy.minutes" placeholder="Minute"/>
+                        </span>
+                    </td>
+                    <td class="alarm-url">
+                        <span ng-if="!isEditingAlarm(alarm)">
+                            <a href="{{alarm.url}}" target="_blank">{{alarm.url}}</a>
+                        </span>
+                        <span ng-if="isEditingAlarm(alarm)">
+                            <input type="text" class="form-control" ng-model="alarm.copy.url" value="{{alarm.url}}" placeholder="URL"/>
+                        </span>
+                    </td>
+                    <td>
+                        <span ng-if="!isEditingAlarm(alarm)" data-time-remaining>
+
+                        </span>
+                        <span ng-if="isEditingAlarm(alarm)">
+                            <button type="button" class="btn btn-primary" ng-click="updateAlarm(alarm)">Validate</button>
+                            <button type="button" class="btn btn-default" ng-click="toggleEditingAlarm(alarm)">Cancel</button>
+                        </span>
+                    </td>
+                    <td>
+                        <i class="fa fa-edit alarm-action alarm-edit" ng-click="toggleEditingAlarm(alarm)"></i>
+                        <i class="fa fa-times alarm-action alarm-remove" ng-click="removeAlarm(alarm)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="alert alert-warning">
+        You need to <strong>allow pop-ups</strong> on this site for the URL to open correctly.
+        <i class="fa fa-info-circle" tooltip="You can test the current behavior by setting an alarm in one minute"></i>
+    </div>
+</div>
