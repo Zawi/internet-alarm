@@ -26,7 +26,7 @@ Install Node.js and then:
 
 ```sh
 $ git clone git://github.com/zawi/internet-alarm
-$ cd ng-boilerplate
+$ cd internet-alarm
 $ sudo npm -g install grunt-cli karma bower
 $ npm install
 $ bower install
@@ -34,5 +34,8 @@ $ grunt watch
 ```
 
 Finally, open `file:///path/to/internet-alarm/build/index.html` in your browser.
+
+Run `grunt compile` for a compiled project (minified JS and CSS...).
+
 
 Happy hacking!

@@ -1,6 +1,5 @@
 angular.module( 'internetAlarm.about', [
   'ui.router',
-  'placeholders',
   'ui.bootstrap'
 ])
 
